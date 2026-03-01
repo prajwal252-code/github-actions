@@ -19,3 +19,9 @@ jobs:
 
       - name: say hello to username
         run: echo "Hello $USER"
+
+  update:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Check updates & show versions.
+          run: sudo apt-get update && python --version
