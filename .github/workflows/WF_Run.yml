@@ -12,5 +12,7 @@ jobs:
     steps:
       - name: Installing Nginx
         run: sudo apt-get install nginx
+
+      - name: Nginx Installation Confirmation
         run: echo "Nginx Installed Successfully"
   
