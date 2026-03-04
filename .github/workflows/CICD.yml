@@ -1,0 +1,26 @@
+#This is a Demo CICD pipeline yml file.
+
+name: CICD Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build an Image
+        run: echo "Image Build"
+
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testing
+        run: echo "Testing Done"
+
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: echo "Deployment Done"
