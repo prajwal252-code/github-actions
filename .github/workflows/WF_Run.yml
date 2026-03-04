@@ -1,0 +1,16 @@
+# This is workflow name
+name: Hello Nginx
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installing Nginx
+        run: sudo apt-get install nginx
+        run: echo "Nginx Installed Successfully"
+  
