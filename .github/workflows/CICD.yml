@@ -3,11 +3,17 @@
 name: CICD Workflow
 
 on:
-  push:
-    branches: [main]
-
-    paths: 
-      - '**.html'
+  workflow_dispatch: 
+    inputs:
+      environment:
+        description: This is New WF
+        default: 'Build'
+        required: true
+        type: choice
+        options:
+          - Build
+          - Test
+          - Deploy
 
 jobs:
 
