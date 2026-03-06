@@ -13,7 +13,7 @@ on:
         options:
           - Build
           - Test
-          - Deploy
+          - Dev
 
 jobs:
 
@@ -30,7 +30,8 @@ jobs:
       - name: Testing
         run: echo "Testing Done"
 
-  Deploy:
+  Deploy: 
+    if: inputs.environment == 'Dev'
     needs: [Build, Test]
     runs-on: ubuntu-latest
     steps:
