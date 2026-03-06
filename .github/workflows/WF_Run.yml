@@ -2,8 +2,7 @@
 name: Hello Nginx
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch: 
 
 jobs:
 
