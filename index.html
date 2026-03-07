@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Portfolio</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Prajwal Shinde | DevOps Portfolio</title>
     <style>
         :root {
             --bg: #0f172a;
@@ -14,97 +13,135 @@
             --text-dim: #94a3b8;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
 
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
 
         /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 2rem 10%; position: sticky; top: 0; 
-            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); z-index: 100;
+            padding: 1.5rem 10%; position: sticky; top: 0; 
+            background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); z-index: 100;
         }
 
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+        .logo { font-size: 1.2rem; font-weight: 800; color: var(--accent); letter-spacing: 1px; }
 
         /* Hero Section */
         header {
-            height: 80vh; display: flex; flex-direction: column;
+            height: 90vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
             padding: 0 10%;
         }
 
-        header h1 { font-size: 4rem; margin-bottom: 1rem; }
-        header p { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; }
+        header h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 1rem; }
+        header p { font-size: 1.2rem; color: var(--text-dim); max-width: 700px; margin-bottom: 2rem; }
+
+        /* Skills/Arsenal Section */
+        .skills-container {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1rem;
+        }
+
+        .skill-badge {
+            background: rgba(56, 189, 248, 0.1); color: var(--accent);
+            padding: 0.5rem 1.2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+            border: 1px solid var(--accent);
+        }
 
         /* Project Grid */
         .container { padding: 5rem 10%; }
         .section-title { margin-bottom: 3rem; font-size: 2rem; border-left: 4px solid var(--accent); padding-left: 1rem; }
 
         .grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .card {
-            background: var(--card-bg); padding: 2rem; border-radius: 15px;
-            transition: transform 0.3s ease, border 0.3s ease;
-            border: 1px solid transparent;
+            background: var(--card-bg); padding: 2.5rem; border-radius: 15px;
+            transition: all 0.3s ease; border: 1px solid transparent;
+            display: flex; flex-direction: column; height: 100%;
         }
 
-        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .card h3 { margin-bottom: 1rem; color: var(--accent); }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); }
+        .card h3 { margin-bottom: 1rem; color: var(--accent); font-size: 1.4rem; }
+        .card p { color: var(--text-dim); flex-grow: 1; }
+        .card a { color: var(--accent); text-decoration: none; font-weight: bold; margin-top: 1.5rem; display: inline-block; }
 
         /* Contact Section */
-        footer { text-align: center; padding: 5rem 10%; background: #020617; }
+        footer { text-align: center; padding: 6rem 10%; background: #020617; }
         .btn {
-            display: inline-block; padding: 0.8rem 2rem; background: var(--accent);
-            color: var(--bg); text-decoration: none; border-radius: 5px; font-weight: bold;
-            margin-top: 1rem;
+            display: inline-block; padding: 1rem 2.5rem; background: var(--accent);
+            color: var(--bg); text-decoration: none; border-radius: 8px; font-weight: 800;
+            margin-top: 2rem; transition: opacity 0.3s;
         }
+        .btn:hover { opacity: 0.9; }
+
+        .social-links { margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; }
+        .social-links a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .social-links a:hover { color: var(--accent); }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
+            .container { padding: 4rem 5%; }
+            nav { padding: 1rem 5%; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">PORTFOLIO.</div>
+        <div class="logo">PRAJWAL.DEV</div>
         <div>
-            <a href="#work" style="color: white; text-decoration: none;">Work</a>
+            <a href="#work" style="color: white; text-decoration: none; margin-left: 20px;">Experience</a>
+            <a href="#contact" style="color: white; text-decoration: none; margin-left: 20px;">Contact</a>
         </div>
     </nav>
 
     <header>
-        <h1>Hi, I'm <span style="color: var(--accent);">Alex.</span></h1>
-        <p>I build high-performance web applications and digital experiences that don't just work—they wow.</p>
-        <a href="#contact" class="btn">Get In Touch</a>
+        <h1>Hi, I'm <span style="color: var(--accent);">Prajwal Shinde.</span></h1>
+        <p>Functional Consultant with 3 years of experience in Ports & Terminals, currently transitioning into <b>DevOps & Cloud Engineering</b>.</p>
+        
+        <div class="skills-container">
+            <span class="skill-badge">Linux</span>
+            <span class="skill-badge">Docker</span>
+            <span class="skill-badge">Git</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">ERP Functional</span>
+        </div>
+
+        <a href="#contact" class="btn">Say Hello</a>
     </header>
 
     <section class="container" id="work">
-        <h2 class="section-title">Selected Projects</h2>
+        <h2 class="section-title">Current Focus & Projects</h2>
         <div class="grid">
             <div class="card">
-                <h3>01. E-Commerce Engine</h3>
-                <p>A headless commerce solution built with React and Node.js.</p>
+                <h3>ERP Functional Expert</h3>
+                <p>3 years of experience streamlining operations in the Ports and Terminal domain. Bridging the gap between business needs and technical execution.</p>
             </div>
             <div class="card">
-                <h3>02. AI Dashboard</h3>
-                <p>Real-time data visualization tool for machine learning models.</p>
+                <h3>Python for DevOps</h3>
+                <p>Developing automation scripts and tools to streamline deployment workflows. Active repository on GitHub showcasing Python integration in DevOps.</p>
+                <a href="https://github.com/prajwal252-code/python-for-devops" target="_blank">View Repository →</a>
             </div>
             <div class="card">
-                <h3>03. Portfolio v2</h3>
-                <p>A minimalist design approach using modern CSS Grid and Flexbox.</p>
+                <h3>DevOps Zero To Hero</h3>
+                <p>Intensive focus on CI/CD pipelines, containerization with Docker, and cloud infrastructure management to build resilient digital systems.</p>
             </div>
         </div>
     </section>
 
     <footer id="contact">
-        <h2>Want to collaborate?</h2>
-        <p>Currently accepting new projects for 2026.</p>
-        <a href="mailto:hello@example.com" class="btn">Email Me</a>
+        <h2>Ready to build something together?</h2>
+        <p>Currently based in Thane, Mumbai. Reach out for collaborations or opportunities.</p>
+        
+        <a href="mailto:shindeprajwal865@gmail.com?subject=Inquiry%20from%20Portfolio&body=Hi%20Prajwal," class="btn">
+            Send an Email
+        </a>
+
+        <div class="social-links">
+            <a href="https://github.com/prajwal252-code" target="_blank">GitHub</a>
+            <a href="#" target="_blank">LinkedIn</a>
+        </div>
     </footer>
 
 </body>
