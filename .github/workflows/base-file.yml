@@ -1,0 +1,24 @@
+name: Web-Server Installation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet Hello to User
+        run: echo "Hello $USER"
+
+  Install:
+    needs: [Build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Nginx
+        run: sudo apt-get update && sudo apt-get install nginx
+
+  Confirmation: [Build, Install]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Nginx is Installed
+        run: echo "Nginx Installed Sucessfully"
