@@ -30,5 +30,7 @@ def calculator():
         else:
             print("Result:", num1 / num2)
 
-calculator()
-``
+
+if __name__ == "__main__":
+    calculator()
+    
