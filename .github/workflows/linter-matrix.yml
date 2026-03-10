@@ -3,8 +3,7 @@ name: Matrix Workflow
 
 #Workflow triggers on manual run
 on:
-  push:
-    branches: [main]
+  workflow_dispatch: 
 
 #Created Jobs to run below steps
 jobs:
