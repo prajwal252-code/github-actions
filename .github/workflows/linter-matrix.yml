@@ -1,9 +1,11 @@
 #name of workflow
 name: Matrix Workflow
 
+#Workflow triggers on manual run
 on:
   workflow_dispatch: 
 
+#Created Jobs to run below steps
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -11,15 +13,18 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.10", "3.11", "3.12"]
-        
+
+#Intitate steps        
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+#Install Python
       - name: Run Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
+#Run Linter
       - name: Install Linter
         run: flake8 app.py
