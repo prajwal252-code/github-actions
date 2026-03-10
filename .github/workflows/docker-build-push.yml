@@ -7,24 +7,24 @@ on:
 jobs:
 
   validate:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Login to Docker HUB
-      uses: docker/login-action@v3
-      with:
-        username: ${{ vars.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login to Docker HUB
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Build and Push to Dockerhub
-      uses: docker/build-push-action@v6
-      with:
-        push: true
-        tags: |
-          ${{ vars.DOCKERHUB_USERNAME }}/Github-Build-Push-App:latest
-          ${{ vars.DOCKERHUB_USERNAME }}/Github-Build-Push-App:{{ github.sha }}
+      - name: Build and Push to Dockerhub
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: |
+            ${{ vars.DOCKERHUB_USERNAME }}/Github-Build-Push-App:latest
+            ${{ vars.DOCKERHUB_USERNAME }}/Github-Build-Push-App:{{ github.sha }}
 
 
