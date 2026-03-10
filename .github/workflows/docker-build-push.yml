@@ -2,10 +2,10 @@
 name: Docker-Build-Push
 
 on: 
-  workflow-dispatch:
+  push:
+    branches: [main]
 
 jobs:
-
   validate:
     runs-on: ubuntu-latest
 
@@ -25,6 +25,6 @@ jobs:
           push: true
           tags: |
             ${{ vars.DOCKERHUB_USERNAME }}/Github-Build-Push-App:latest
-            ${{ vars.DOCKERHUB_USERNAME }}/Github-Build-Push-App:{{ github.sha }}
+            ${{ vars.DOCKERHUB_USERNAME }}/Github-Build-Push-App:${{ github.sha }}
 
 
