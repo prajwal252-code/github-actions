@@ -1,37 +1,12 @@
-def calculator():
-    print("Simple Python Calculator")
-    print("Choose an operation:")
-    print("1. Add")
-    print("2. Subtract")
-    print("3. Multiply")
-    print("4. Divide")
-
-    choice = input("Enter choice (1/2/3/4): ")
-
-    if choice not in ['1', '2', '3', '4']:
-        print("Invalid choice. Try again.")
-        return
-
-    num1 = float(input("Enter first number: "))
-    num2 = float(input("Enter second number: "))
-
-    if choice == '1':
-        print("Result:", num1 + num2)
-
-    elif choice == '2':
-        print("Result:", num1 - num2)
-
-    elif choice == '3':
-        print("Result:", num1 * num2)
-
-    elif choice == '4':
-        if num2 == 0:
-            print("Error: Cannot divide by zero!")
-        else:
-            print("Result:", num1 / num2)
+from flask import Flask, render_template
+app = Flask(__name__)
 
 
-if __name__ == "__main__":
-    calculator()
+@app.route('/')
+def hello_world():
+    return render_template('index.html')
 
-app.run(debug=True, host='0.0.0.0', port=80)
+
+@app.route('/health')
+def health():
+    return 'Server is up and running'
